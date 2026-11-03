@@ -1,0 +1,19 @@
+{
+  "runs": [
+    {
+      "rows": 1067371,
+      "seconds": 2.54
+    },
+    {
+      "rows": 2134742,
+      "seconds": 5.33
+    },
+    {
+      "rows": 3202113,
+      "seconds": 7.32
+    }
+  ],
+  "rows_per_second": 437447.131147541,
+  "extrapolated_10M_seconds": 22.8599053187692,
+  "note": "full ETL transform + aggregation measured at 1-3x raw volume; 10M value is a linear extrapolation"
+}
