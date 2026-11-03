@@ -1,0 +1,121 @@
+{
+  "rows_raw": 1067371,
+  "rows_clean": 1003336,
+  "rows_returns": 17914,
+  "retention_pct": 94.0,
+  "customers": 5852,
+  "skus": 4723,
+  "date_min": "2009-12-01",
+  "date_max": "2011-12-09",
+  "revenue_total": 19643295.02,
+  "guest_line_share": 0.22600704051284914,
+  "custom_column": "region_group",
+  "columns": [
+    "invoice_no",
+    "stock_code",
+    "description",
+    "quantity",
+    "invoice_date",
+    "unit_price",
+    "country",
+    "quantity_capped",
+    "is_guest",
+    "customer_key",
+    "revenue",
+    "date",
+    "year",
+    "month",
+    "quarter",
+    "dow",
+    "hour",
+    "region_group"
+  ],
+  "lineage": [
+    {
+      "step": "extract",
+      "rows_before": 1067371,
+      "rows_after": 1067371,
+      "rows_removed": 0,
+      "note": "raw rows loaded"
+    },
+    {
+      "step": "drop unparsable dates",
+      "rows_before": 1067371,
+      "rows_after": 1067371,
+      "rows_removed": 0,
+      "note": ""
+    },
+    {
+      "step": "drop exact duplicate rows",
+      "rows_before": 1067371,
+      "rows_after": 1033036,
+      "rows_removed": 34335,
+      "note": "same invoice/item/qty/time/price"
+    },
+    {
+      "step": "split cancellations -> returns table",
+      "rows_before": 1033036,
+      "rows_after": 1013932,
+      "rows_removed": 19104,
+      "note": "invoice prefix 'C'"
+    },
+    {
+      "step": "drop bad-debt adjustments",
+      "rows_before": 1013932,
+      "rows_after": 1013926,
+      "rows_removed": 6,
+      "note": "invoice prefix 'A'"
+    },
+    {
+      "step": "drop qty<=0 or price<=0",
+      "rows_before": 1013926,
+      "rows_after": 1007912,
+      "rows_removed": 6014,
+      "note": "stock write-offs / free samples"
+    },
+    {
+      "step": "drop non-product service codes",
+      "rows_before": 1007912,
+      "rows_after": 1003338,
+      "rows_removed": 4574,
+      "note": "postage, fees, manual, samples"
+    },
+    {
+      "step": "fix / drop missing descriptions",
+      "rows_before": 1003338,
+      "rows_after": 1003338,
+      "rows_removed": 0,
+      "note": "back-filled from StockCode mode"
+    },
+    {
+      "step": "drop duplicates after text normalisation",
+      "rows_before": 1003338,
+      "rows_after": 1003336,
+      "rows_removed": 2,
+      "note": "same line, different description text"
+    },
+    {
+      "step": "winsorise quantity",
+      "rows_before": 1003336,
+      "rows_after": 1003336,
+      "rows_removed": 0,
+      "note": "948 lines capped at p99.9 = 500 units"
+    },
+    {
+      "step": "anonymise customer IDs",
+      "rows_before": 1003336,
+      "rows_after": 1003336,
+      "rows_removed": 0,
+      "note": "226761 guest lines keep NULL key (excluded from CRM models)"
+    },
+    {
+      "step": "add custom column 'region_group'",
+      "rows_before": 1003336,
+      "rows_after": 1003336,
+      "rows_removed": 0,
+      "note": "UK / Europe / Rest of World / Unspecified, derived from country"
+    }
+  ],
+  "quality_passed": "27/27",
+  "elapsed_seconds": 6.8
+}
