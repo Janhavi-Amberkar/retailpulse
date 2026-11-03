@@ -1,0 +1,101 @@
+{
+  "n_skus": 60,
+  "n_cycles": 766,
+  "origins": 13,
+  "policy_summary": [
+    {
+      "policy": "Hierarchical forecast (no buffer)",
+      "cycles": 766,
+      "demand": 900129.0,
+      "understock_units": 221872.67186450068,
+      "overstock_units": 162525.6000646971,
+      "lost_margin": 242086.99873586762,
+      "holding_cost": 4831.419443763033,
+      "stockout_cycles": 0.4412532637075718,
+      "fill_rate_pct": 75.35101392528173,
+      "understock_pct_of_demand": 24.648986074718255,
+      "overstock_pct_of_demand": 18.055812007467495,
+      "imbalance_units": 384398.27192919777,
+      "total_cost": 246918.41817963065
+    },
+    {
+      "policy": "Moving average (no buffer)",
+      "cycles": 766,
+      "demand": 900129.0,
+      "understock_units": 270094.5,
+      "overstock_units": 103617.5,
+      "lost_margin": 294845.917,
+      "holding_cost": 2999.972030769231,
+      "stockout_cycles": 0.5796344647519582,
+      "fill_rate_pct": 69.9938008885393,
+      "understock_pct_of_demand": 30.006199111460692,
+      "overstock_pct_of_demand": 11.511405587421358,
+      "imbalance_units": 373712.0,
+      "total_cost": 297845.88903076923
+    },
+    {
+      "policy": "Moving average + safety stock",
+      "cycles": 766,
+      "demand": 900129.0,
+      "understock_units": 129423.83838741943,
+      "overstock_units": 315531.1786611821,
+      "lost_margin": 136085.75666278886,
+      "holding_cost": 9493.169473943955,
+      "stockout_cycles": 0.29112271540469975,
+      "fill_rate_pct": 85.62163441157664,
+      "understock_pct_of_demand": 14.378365588423375,
+      "overstock_pct_of_demand": 35.053995445228644,
+      "imbalance_units": 444955.0170486015,
+      "total_cost": 145578.9261367328
+    },
+    {
+      "policy": "Per-SKU Prophet (no buffer)",
+      "cycles": 766,
+      "demand": 900129.0,
+      "understock_units": 211183.68493215178,
+      "overstock_units": 639580.5054239308,
+      "lost_margin": 242972.58122313308,
+      "holding_cost": 23287.527683185246,
+      "stockout_cycles": 0.4360313315926893,
+      "fill_rate_pct": 76.5385089323695,
+      "understock_pct_of_demand": 23.461491067630504,
+      "overstock_pct_of_demand": 71.05431615067738,
+      "imbalance_units": 850764.1903560826,
+      "total_cost": 266260.1089063183
+    },
+    {
+      "policy": "RetailPulse (hierarchical + safety stock)",
+      "cycles": 766,
+      "demand": 900129.0,
+      "understock_units": 113262.2466184278,
+      "overstock_units": 437850.4121994551,
+      "lost_margin": 117132.48589949483,
+      "holding_cost": 13131.958425550813,
+      "stockout_cycles": 0.20757180156657964,
+      "fill_rate_pct": 87.41710947892716,
+      "understock_pct_of_demand": 12.582890521072846,
+      "overstock_pct_of_demand": 48.64307362605305,
+      "imbalance_units": 551112.6588178829,
+      "total_cost": 130264.44432504564
+    }
+  ],
+  "sku_wape_median": {
+    "ma": 51.07673042265401,
+    "direct": 71.89875714285594,
+    "hier": 54.10306784383523
+  },
+  "service_level": 0.95,
+  "seconds": 50.62067747116089,
+  "status_counts": {
+    "Healthy": 33,
+    "Reorder now": 15,
+    "Overstock": 10,
+    "Stockout risk": 2
+  },
+  "assumptions": {
+    "stock": "SIMULATED (no stock table in public dataset)",
+    "unit_cost_ratio": 0.6,
+    "holding_rate": 0.2,
+    "order_cost": 25.0
+  }
+}
