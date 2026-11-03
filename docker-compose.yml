@@ -1,0 +1,60 @@
+# Full local stack:  docker compose up --build
+#   dashboard http://localhost:8501 · mlflow http://localhost:5000 · prometheus :9090 · grafana :3000 (admin/admin)
+# One-shot retraining:  docker compose --profile ml run --rm trainer
+services:
+  app:
+    build: { context: ., target: app }
+    ports: ["8501:8501", "8000:8000"]
+    environment:
+      RETAILPULSE_SALT: ${RETAILPULSE_SALT:-retailpulse-demo-salt}
+      RETAILPULSE_ANALYST_PIN: ${RETAILPULSE_ANALYST_PIN:-analyst}
+      RETAILPULSE_ADMIN_PIN: ${RETAILPULSE_ADMIN_PIN:-admin}
+      DATABASE_URL: postgresql+psycopg2://retail:${POSTGRES_PASSWORD:-retail}@postgres:5432/retailpulse
+      REDIS_URL: redis://redis:6379/0
+    depends_on: [postgres, redis]
+    restart: unless-stopped
+
+  api:
+    build: { context: ., target: ml }
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8080
+    ports: ["8080:8080"]
+    environment:
+      RETAILPULSE_JWT_SECRET: ${RETAILPULSE_JWT_SECRET:?set RETAILPULSE_JWT_SECRET (>=32 chars) in .env}
+    profiles: ["api"]
+
+  trainer:
+    build: { context: ., target: ml }
+    command: python scripts/retrain.py --force
+    volumes: ["./data:/app/data", "./models:/app/models", "./reports:/app/reports"]
+    environment:
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+    profiles: ["ml"]
+
+  postgres:
+    image: postgres:16-alpine
+    environment: { POSTGRES_USER: retail, POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-retail}", POSTGRES_DB: retailpulse }
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+
+  redis:
+    image: redis:7-alpine
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    command: mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri sqlite:///mlflow/mlflow.db
+    ports: ["5000:5000"]
+    volumes: ["mlflowdata:/mlflow"]
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes: ["./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro"]
+    ports: ["9090:9090"]
+
+  grafana:
+    image: grafana/grafana:latest
+    ports: ["3000:3000"]
+    volumes:
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    depends_on: [prometheus]
+
+volumes: { pgdata: {}, mlflowdata: {} }

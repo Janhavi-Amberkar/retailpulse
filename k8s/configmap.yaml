@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: { name: retailpulse-config, namespace: retailpulse }
+data:
+  METRICS_PORT: "8000"
+  STREAMLIT_SERVER_HEADLESS: "true"
+  MLFLOW_TRACKING_URI: "http://mlflow.retailpulse.svc:5000"

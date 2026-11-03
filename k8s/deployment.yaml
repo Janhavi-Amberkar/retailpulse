@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: retailpulse-app, namespace: retailpulse, labels: { app: retailpulse-app } }
+spec:
+  replicas: 2
+  strategy: { type: RollingUpdate, rollingUpdate: { maxUnavailable: 0, maxSurge: 1 } }
+  selector: { matchLabels: { app: retailpulse-app } }
+  template:
+    metadata:
+      labels: { app: retailpulse-app }
+      annotations: { prometheus.io/scrape: "true", prometheus.io/port: "8000" }
+    spec:
+      securityContext: { runAsNonRoot: true, runAsUser: 10001, seccompProfile: { type: RuntimeDefault } }
+      containers:
+        - name: app
+          image: ghcr.io/YOUR_GITHUB_USER/retailpulse:latest   # replaced by CI with the commit SHA
+          imagePullPolicy: IfNotPresent
+          ports: [{ name: http, containerPort: 8501 }, { name: metrics, containerPort: 8000 }]
+          envFrom: [{ configMapRef: { name: retailpulse-config } }, { secretRef: { name: retailpulse-secrets } }]
+          resources: { requests: { cpu: 250m, memory: 512Mi }, limits: { cpu: "1", memory: 1Gi } }
+          readinessProbe: { httpGet: { path: /_stcore/health, port: http }, initialDelaySeconds: 10, periodSeconds: 10 }
+          livenessProbe: { httpGet: { path: /_stcore/health, port: http }, initialDelaySeconds: 30, periodSeconds: 20 }
+          securityContext: { allowPrivilegeEscalation: false, capabilities: { drop: ["ALL"] } }
+          volumeMounts: [{ name: logs, mountPath: /app/logs }]
+      volumes: [{ name: logs, emptyDir: {} }]
