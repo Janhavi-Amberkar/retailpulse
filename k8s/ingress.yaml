@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: retailpulse
+  namespace: retailpulse
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod      # HTTPS enforced
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"   # Streamlit websockets
+spec:
+  ingressClassName: nginx
+  tls: [{ hosts: ["retailpulse.example.com"], secretName: retailpulse-tls }]
+  rules:
+    - host: retailpulse.example.com
+      http: { paths: [{ path: /, pathType: Prefix, backend: { service: { name: retailpulse-app, port: { name: http } } } }] }
