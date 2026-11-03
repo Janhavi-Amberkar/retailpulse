@@ -1,0 +1,104 @@
+1
+00:00:00,000 --> 00:00:08,900
+Overview — 1.0M real retail transactions: £19.64M revenue, 5,852 customers, 3.6% returns
+
+2
+00:00:09,000 --> 00:00:17,900
+Spec scoreboard: every target is shown as measured, not claimed
+
+3
+00:00:18,000 --> 00:00:26,900
+Demand Forecast — Prophet + LSTM ensemble predicts the next 30 trading days
+
+4
+00:00:27,000 --> 00:00:44,900
+Accuracy: weekly MAPE 11.9% (target ≤ 12%), 30-day total error 4.2%. Daily MAPE stays ~31% because of lumpy wholesale orders
+
+5
+00:00:45,000 --> 00:00:53,900
+Decomposition: trend + weekly seasonality; the series is non-stationary (ADF test)
+
+6
+00:00:54,000 --> 00:01:20,900
+What-if scenarios: change promotion, price, market shock or closed days — forecast and revenue update instantly
+
+7
+00:01:21,000 --> 00:01:38,900
+Customer Segments — K-Means finds 6 segments; 'Champions' generate ~73% of revenue
+
+8
+00:01:39,000 --> 00:01:47,900
+3-D cluster map of customers (PCA projection)
+
+9
+00:01:48,000 --> 00:01:56,900
+Model selection: silhouette picks k = 6 (inside the 6–8 band); DBSCAN finds only 2 clusters
+
+10
+00:01:57,000 --> 00:02:14,900
+Customer list: filter by segment. IDs are masked pseudonyms for the Viewer role
+
+11
+00:02:15,000 --> 00:02:23,900
+Churn Prediction — XGBoost tuned with Optuna, compared with Logistic Regression and Random Forest
+
+12
+00:02:24,000 --> 00:02:32,900
+AUC-ROC 0.806 on a strict out-of-time test (0.88 target not met). Precision in top-20% risk: 0.889 (target met)
+
+13
+00:02:33,000 --> 00:02:41,900
+Churn is seasonal: the base rate swings from ~40% to ~70% across the year
+
+14
+00:02:42,000 --> 00:02:59,900
+At-risk customers: filter by tier, segment and spend. Each row lists its top SHAP risk drivers
+
+15
+00:03:00,000 --> 00:03:17,900
+Retention simulator: budget, cost per contact and save rate give the expected profit
+
+16
+00:03:18,000 --> 00:03:26,900
+Profit curve shows where to stop contacting customers
+
+17
+00:03:27,000 --> 00:03:44,900
+Inventory — reorder points, safety stock, EOQ. Sliders for service level, lead time and demand re-plan instantly (stock levels are simulated)
+
+18
+00:03:45,000 --> 00:03:53,900
+Back-test on 766 real replenishment cycles: RetailPulse 87.4% fill rate vs 70.0% for a naive moving average
+
+19
+00:03:54,000 --> 00:04:02,900
+MLOps — 13 MLflow runs tracked across segmentation, forecast, churn, inventory and drift
+
+20
+00:04:03,000 --> 00:04:11,900
+Drift monitor: PSI per feature compares today's customers with the training reference
+
+21
+00:04:12,000 --> 00:04:20,900
+Drift simulation: the slider injects a market shock; the model is retrained once 30% of features drift
+
+22
+00:04:21,000 --> 00:04:38,900
+Data & ETL — 1,067,371 raw rows → 1,003,336 clean (94%). 27 of 27 data-quality checks pass
+
+23
+00:04:39,000 --> 00:04:47,900
+Source: UCI Online Retail II (CC BY 4.0). Custom column added in ETL: region_group
+
+24
+00:04:48,000 --> 00:05:10,900
+Role-based access: Viewer by default; Analyst and Admin unlock exports and the audit log
+
+25
+00:05:11,000 --> 00:05:27,900
+Executive PDF report generated from the live results
+
+26
+00:05:28,000 --> 00:06:05,200
+CSV bundle export: forecast, segments, churn scores, purchase plan and drift table
+

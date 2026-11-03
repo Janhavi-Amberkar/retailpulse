@@ -8,13 +8,27 @@
 
 ![python](https://img.shields.io/badge/python-3.11-7C5CFF) ![streamlit](https://img.shields.io/badge/dashboard-Streamlit-22D3EE) ![mlflow](https://img.shields.io/badge/tracking-MLflow-34D399) ![tests](https://img.shields.io/badge/tests-39%20passing-34D399) ![license](https://img.shields.io/badge/license-MIT-FBBF24)
 
-**[🔴 Live demo](https://YOUR-APP.streamlit.app)** · **[📄 Project report (PDF)](docs/RetailPulse_Report_Zidio_Nov2026.pdf)** · **[🎬 Demo video](https://YOUR-VIDEO-LINK)**
+**[🔴 Live demo](https://retailpulse-77wtccmydlnjaosuqdorjv.streamlit.app)** · **[📄 Project report (PDF)](https://drive.google.com/drive/folders/1CktH6fhtpEjAqZHLpW4jymXMZ-zzh_l4)** · **[🎬 Demo video](https://drive.google.com/drive/folders/1CktH6fhtpEjAqZHLpW4jymXMZ-zzh_l4)** · **[💻 GitHub](https://github.com/Janhavi-Amberkar/retailpulse)**
 
 *Zidio Development · Data Science & Analytics · Author: Janhavi Prakash Amberkar · Mentor: Chandan Mishra · Nov 2026*
 
 ![Overview](docs/screenshots/01_overview.png)
 
 </div>
+
+---
+
+## 🔗 Project links (Zidio submission)
+
+| Deliverable | Link |
+|---|---|
+| 💻 Source code (GitHub) | https://github.com/Janhavi-Amberkar/retailpulse |
+| 🔴 Live deployment (Streamlit, public HTTPS) | https://retailpulse-77wtccmydlnjaosuqdorjv.streamlit.app |
+| 🎬 Demo video (6 min, subtitled) | [Google Drive folder](https://drive.google.com/drive/folders/1CktH6fhtpEjAqZHLpW4jymXMZ-zzh_l4) → `RetailPulse_Demo_subtitled.mp4` |
+| 📄 Project report (16-page PDF) | [Google Drive folder](https://drive.google.com/drive/folders/1CktH6fhtpEjAqZHLpW4jymXMZ-zzh_l4) → `RetailPulse_Report_Zidio_Nov2026.pdf` · also in [`docs/`](docs/RetailPulse_Report_Zidio_Nov2026.pdf) |
+| 🎤 Feedback video | added to the same [Drive folder](https://drive.google.com/drive/folders/1CktH6fhtpEjAqZHLpW4jymXMZ-zzh_l4) |
+
+Demo-role passcodes for the live app: Analyst `analyst` · Admin `admin` (Viewer needs no sign-in).
 
 ---
 

@@ -27,6 +27,9 @@ SHOT = ROOT / "docs" / "screenshots"
 AUTHOR = "Janhavi Prakash Amberkar"
 MENTOR = "Chandan Mishra"
 DATE = "November 2026"
+GH_URL = "https://github.com/Janhavi-Amberkar/retailpulse"
+LIVE_URL = "https://retailpulse-77wtccmydlnjaosuqdorjv.streamlit.app"
+DRIVE_URL = "https://drive.google.com/drive/folders/1CktH6fhtpEjAqZHLpW4jymXMZ-zzh_l4"
 OUT_PDF = ROOT / "docs" / "RetailPulse_Report_Zidio_Nov2026.pdf"
 
 
@@ -137,6 +140,14 @@ def body_html() -> str:
     parts: list[str] = []
 
     # ---------------------------------------------------------------- 2 overview
+    parts.append(
+        '<div class="callout"><b>Project links</b><table style="margin:2mm 0 0"><tbody>'
+        f'<tr><td>Source code (GitHub)</td><td><a href="{GH_URL}">{GH_URL}</a></td></tr>'
+        f'<tr><td>Live demo (public HTTPS)</td><td><a href="{LIVE_URL}">{LIVE_URL}</a></td></tr>'
+        f'<tr><td>Demo video &amp; feedback video</td><td><a href="{DRIVE_URL}">{DRIVE_URL}</a></td></tr>'
+        f'<tr><td>This report (PDF, Drive)</td><td><a href="{DRIVE_URL}">{DRIVE_URL}</a></td></tr>'
+        "</tbody></table></div>"
+    )
     parts.append(f"""<h1>1 · Project Overview</h1>
 <h3>Vision &amp; objectives</h3>
 <p>Retailers lose revenue to stock-outs on one side and tied-up capital on the other, and they rarely know which customers are about to leave.
