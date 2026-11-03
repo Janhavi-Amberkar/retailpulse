@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11", cache: pip }
-      - run: pip install ruff black
+      - run: pip install ruff==0.17.3 black==26.10.1
       - run: ruff check .
       - run: black --check --line-length 120 src app api tests scripts airflow
 
@@ -23,7 +23,7 @@ jobs:
         with: { python-version: "3.11", cache: pip }
       # tests need the light stack + sklearn/fastapi - not torch/prophet (those stages run in `make pipeline`)
       - run: |
-          pip install -r requirements.txt scikit-learn sqlalchemy holidays statsmodels fastapi pyjwt httpx pytest pytest-cov xgboost
+          pip install -r requirements.txt scikit-learn sqlalchemy holidays statsmodels fastapi pyjwt python-multipart httpx pytest pytest-cov xgboost
           pytest --cov=src --cov-report=term-missing
 
   smoke-dashboard:
