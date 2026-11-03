@@ -1,0 +1,14 @@
+.git
+.github
+__pycache__
+*.pyc
+.venv
+mlruns
+mlflow.db
+data/raw
+data/processed/clean_transactions.parquet
+data/retailpulse.db
+docs/screenshots
+notebooks/.ipynb_checkpoints
+logs/*.log
+models/_champion

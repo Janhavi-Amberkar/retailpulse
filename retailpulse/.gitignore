@@ -1,0 +1,30 @@
+# data (raw file is 95 MB -> fetched by scripts/download_data.py; GitHub blocks files > 100 MB)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/clean_transactions.parquet
+data/retailpulse.db
+# experiment tracking / runtime state
+mlruns/
+mlflow.db
+models/_champion/
+logs/*
+!logs/.gitkeep
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+# secrets - never commit
+.env
+.streamlit/secrets.toml
+k8s/secret.yaml
+*.pem
+# os / editor
+.DS_Store
+.idea/
+.vscode/
