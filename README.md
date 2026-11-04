@@ -8,7 +8,7 @@
 
 ![python](https://img.shields.io/badge/python-3.11-7C5CFF) ![streamlit](https://img.shields.io/badge/dashboard-Streamlit-22D3EE) ![mlflow](https://img.shields.io/badge/tracking-MLflow-34D399) ![tests](https://img.shields.io/badge/tests-39%20passing-34D399) ![license](https://img.shields.io/badge/license-MIT-FBBF24)
 
-**[🔴 Live demo](https://retailpulse-77wtccmydlnjaosuqdorjv.streamlit.app)** · **[📄 Project report (PDF)](https://drive.google.com/file/d/1WSe5m9usp8-bymtbnI1m1bvMeNHwLQv4/view)** · **[🎬 Demo video](https://drive.google.com/file/d/1WjvNTkKnkBKvgJpRzP9BHyZ5w2LaaBFK/view)** · **[🎤 Feedback video](https://drive.google.com/file/d/1IV-7ho1993BTTy8dhxv9wf3DFqq1JAps/view)** · **[💻 GitHub](https://github.com/Janhavi-Amberkar/retailpulse)**
+**[🔴 Live demo](https://retailpulse-77wtccmydlnjaosuqdorjv.streamlit.app)** · **[📄 Project report (PDF)](https://drive.google.com/file/d/1FJH3TS-87mER03xdCP4X6IfPdSKTxI-z/view)** · **[🎬 Demo video](https://drive.google.com/file/d/1WjvNTkKnkBKvgJpRzP9BHyZ5w2LaaBFK/view)** · **[🎤 Feedback video](https://drive.google.com/file/d/1IV-7ho1993BTTy8dhxv9wf3DFqq1JAps/view)** · **[💻 GitHub](https://github.com/Janhavi-Amberkar/retailpulse)**
 
 *Zidio Development · Data Science & Analytics · Author: Janhavi Prakash Amberkar · Mentor: Chandan Mishra · Nov 2026*
 
@@ -25,7 +25,7 @@
 | 💻 Source code (GitHub) | https://github.com/Janhavi-Amberkar/retailpulse |
 | 🔴 Live deployment (Streamlit, public HTTPS) | https://retailpulse-77wtccmydlnjaosuqdorjv.streamlit.app |
 | 🎬 Demo video (6 min, subtitled) | [RetailPulse_Demo_subtitled.mp4](https://drive.google.com/file/d/1WjvNTkKnkBKvgJpRzP9BHyZ5w2LaaBFK/view) (all files: [Drive folder](https://drive.google.com/drive/folders/1CktH6fhtpEjAqZHLpW4jymXMZ-zzh_l4)) |
-| 📄 Project report (16-page PDF) | [RetailPulse_Report_Zidio_Nov2026.pdf](https://drive.google.com/file/d/1WSe5m9usp8-bymtbnI1m1bvMeNHwLQv4/view) · also in [`docs/`](docs/RetailPulse_Report_Zidio_Nov2026.pdf) |
+| 📄 Project report (16-page PDF) | [RetailPulse_Report_Zidio_Nov2026.pdf](https://drive.google.com/file/d/1FJH3TS-87mER03xdCP4X6IfPdSKTxI-z/view) · also in [`docs/`](docs/RetailPulse_Report_Zidio_Nov2026.pdf) |
 | 🎤 Feedback video (1 min) | [RetailPulse_Feedback_Video.mp4](https://drive.google.com/file/d/1IV-7ho1993BTTy8dhxv9wf3DFqq1JAps/view) |
 
 Demo-role passcodes for the live app: Analyst `analyst` · Admin `admin` (Viewer needs no sign-in).
