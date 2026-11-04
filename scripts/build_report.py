@@ -32,7 +32,7 @@ LIVE_URL = "https://retailpulse-77wtccmydlnjaosuqdorjv.streamlit.app"
 DRIVE_URL = "https://drive.google.com/drive/folders/1CktH6fhtpEjAqZHLpW4jymXMZ-zzh_l4"
 DEMO_URL = "https://drive.google.com/file/d/1WjvNTkKnkBKvgJpRzP9BHyZ5w2LaaBFK/view"
 FEEDBACK_URL = "https://drive.google.com/file/d/1IV-7ho1993BTTy8dhxv9wf3DFqq1JAps/view"
-REPORT_URL = "https://drive.google.com/file/d/1FJH3TS-87mER03xdCP4X6IfPdSKTxI-z/view"
+REPORT_URL = "https://drive.google.com/file/d/181sd05Gsy1hpfj3HEFK8Ao2nO5KuiCMi/view"
 OUT_PDF = ROOT / "docs" / "RetailPulse_Report_Zidio_Nov2026.pdf"
 
 
